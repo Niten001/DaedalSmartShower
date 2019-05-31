@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Daedal Smart Water System - Web Mockup</title>
+        <!--<link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />-->
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <link rel="stylesheet" type="text/css" href="./fonts/font_awesome/css/all.min.css" />
+    </head>
+    <body>
+        <div class="header">
+            <div id="header_logo"></div>
+            <div id="header_dashboard" class="header_button">Controls</div>
+            <div id="header_profile_container" class="header_profile">
+                <div id="header_profile_icon"></div>
+                <div id="header_profile_list">
+                    <div id="night_mode">Night Mode</div>
+                    <div id="help">Help</div>
+                    <div id="settings">Settings</div>
+                    <div id="login">Log In/Sign Up</div>
+                </div>
+            </div>
+            <div id="header_user" class="header_button"><span>Admin User</span> (Admin)</div>
+        </div>
+        <div class="main">
+            <div id="sidebar" class="container">
+                <div id="sidebar_selected" class="sidebar_pane">Users</div>
+                <div class="sidebar_pane">Devices</div>
+            </div>
+            <div id="info_container" class="container">
+                    <div id="current_user">
+                            Current User: 
+                            <span>Defualt User u456788</span>
+                        </div>
+                    <div id="current_device">
+                        Current Device: 
+                        <span>Shower Controller e146534</span>
+                    </div>
+                </div>
+            <div id="user_settings" class="container">
+                <div id="user_img"></div>
+                <div id="user_name">
+                    Name:
+                    <span>Defualt User u456788</span>
+                </div>
+                <div id="user_email">
+                    Email:
+                    <span>default@email.com.au</span>
+                </div>
+                <div id="user_phone">
+                    Phone:
+                    <span>05 1234 6789</span></div>
+                <div id="user_preferences">
+                    User Preferences
+                    <div id="pref_temp">
+                        <div id="default">
+                            Pref. Temperature: <span>22.5</span>
+                        </div>
+                    </div>
+                    <div id="pref_pressure">
+                        <div id="default">
+                            Pref. Pressure: <span>850 kPa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="user_restrictions" class="container">
+                User Restrictions
+                <div id="restrict_temp">
+                    <div id="low">
+                        Minimum Temperature: <span>10</span>
+                    </div>
+                    <div id="high">
+                        Maximum Temperature: <span>40</span>
+                    </div>
+                </div>
+                <div id="restrict_pressure">
+                    <div id="high">
+                        Maximum Pressure: <span>850 kPa</span>
+                    </div>
+                </div>
+            </div>
+            <div id="graph" class="container">
+                <img id="graph_img" src="./img/graph_img.png" />
+            </div>
+            <div id="data_options" class="container">
+                <div class="container">Data Chart Settings</div>
+                <div id="data_dropdown">Average Water Use</div>
+                <div id="data_start_date">Start Date:<span>1/1/2008</span></div>
+                <div id="data_end_date">End Date:<span>31/12/2009</span></div>
+            </div>
+        </div>
+    </body>
+</html>
