@@ -1,0 +1,19 @@
+{
+  "name": "daedalsmartshower",
+  "version": "0.1.0",
+  "description": "The software code repository for the Daedal smart shower for ECTE350.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Niten001/DaedalSmartShower.git"
+  },
+  "author": "Daedal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Niten001/DaedalSmartShower/issues"
+  },
+  "homepage": "https://github.com/Niten001/DaedalSmartShower#readme"
+}
