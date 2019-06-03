@@ -72,6 +72,26 @@ localhost:8080
 ```
 
 ## Workflow for editing/adding code to this repository
+When you wish to modify the code in this repository you must follow a simple process to minimise errors and maximise productivity. First you must go to the *Projects* page for this repository and ensure nobody else is currently working on the specific problem you plan on addressing. If there are no existing projects for the task you wish to complete, the next task you must complete, is to create a new project pane with the following information and structure.
+```
+```
+Once this is completed, move the pane for the tasks you are currently working on into the *In Progress* column of the projects dashboard.
+
+Now you need to open the folder where this repository is stored locally on your computer and ensure follow a series of steps which can be completed in both Visual Studio and the Command Line.
+
+#### Visual Studio
+
+Open the repository in Visual Studio and navigate to the *Branches* tab in the *Team Explorer*, once there ensure you have the most recent version of the *master* branch by running a *Fetch* on this branch (Right click on the *master* branch and select *Fetch*).
+
+Now that you have the most recent version of *master* you must create a new local branch for the particular project you are working on (Ensure you use logical naming conventions, preferably using the same name as the title for the project pane you are currently working on; formatted using [Pascal Case](https://en.wiktionary.org/wiki/Pascal_case)). Then you can *check out* this branch and make changes to the code as necessary.
+
+During the coding on your new branch you should periodically *commit* your changes on your branch (preferably at least once a day). To do this you can go to the *Changes* tab in the *Team Explorer* and enter a sensible commit message (this message should briefly and concisely cover what has been changed since the last commit). Then you can click *Commit*/*Commit All* to commit your changes to your branch.
+
+Once you have completed coding on your branch you now have to perform a *rebase* on your code. This is done to update your branch to the latest version of the *master* branch to prevent errors and conflicts when your branch is merged into the master branch. The first step when performing a *rebase* operation is to *fetch* the latest version of *master* in the same way as before. Now you *check out* your branch and select *Rebase* from the *Branches* tab in the *Team Explorer* you then *rebase* your current branch onto the *master* branch and read through all the conflicts ensuring you keep both your new changes and the changes on *master* (when in doubt about a conflict, always give preference to the *master* branch to ensure nobodyelses code changes are overwritten accidentally). Now you should check that the *rebase* operation hasn't caused any issues/errors and you code changes still work. Now you should *commit* all the new changes on your branch.
+
+Now that you have performed a *rebase* on your branch you are ready to push your local branch up to the GitHub repository so that you can perform a *Pull Request* on your branch. (You can do this at any time to share your branch with other members of the team, however you should not complete a *pull request* until you have completed the changes to your code and the outcomes addressed in the project pane referencing this branch). To push your code all you need to do is go the the *Branches* tab of the *Team Explorer* and right click on the branch you wish to push to GitHub, then select push.
+
+When you wish to complete a *Pull Request* on your code go to the GitHub repository and
 
 ## Guidelines for writing code for this repository
 
