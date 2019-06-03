@@ -117,7 +117,7 @@ nobody else's code changes are overwritten accidentally). Now you should check t
 code changes still work. Now you should *commit* all the new changes on your branch.
 
 Now that you have performed a *rebase* on your branch you are ready to push your local branch up to the GitHub repository so that you can perform a
-*Pull Request* on your branch. (You can do this at any time to share your branch with other members of the team, however you should not complete a
+*pull request* on your branch. (You can do this at any time to share your branch with other members of the team, however you should not complete a
 *pull request* until you have completed the changes to your code and the outcomes addressed in the project pane referencing this branch). To push your
 code all you need to do is go the the *Branches* tab of the *Team Explorer* and right click on the branch you wish to push to GitHub, then select push.
 
@@ -164,14 +164,14 @@ Now you should check that the *rebase* operation hasn't caused any issues/errors
 changes on your branch.
 
 Now that you have performed a *rebase* on your branch you are ready to push your local branch up to the GitHub repository so that you can perform a
-*Pull Request* on your branch. (You can do this at any time to share your branch with other members of the team, however you should not complete a
+*pull request* on your branch. (You can do this at any time to share your branch with other members of the team, however you should not complete a
 *pull request* until you have completed the changes to your code and the outcomes addressed in the project pane referencing this branch). To push your
 code all you need to do is run the following command.
 ```
 git push https://github.com/Niten001/DaedalSmartShower.git <branch-name>
 ```
 
-When you wish to complete a *Pull Request* on your code go to the GitHub repository and you should either be prompted to create a pull request, or you
+When you wish to complete a *pull request* on your code go to the GitHub repository and you should either be prompted to create a pull request, or you
 can select *New pull request* and include the following information.
 ```
 Title of the project pane
@@ -220,7 +220,7 @@ are not used to seperate multi-line comments from the rest of the code
 - Ilija Babic (5777446)
 - Yuhao Cui (6101422)
 - Lachlan Fowke (5065549)
-- @Niten001 Timothy Martin (5726803)
+- [@Niten001](https://github.com/Niten001) Timothy Martin (5726803)
 - Amalesh Nagenthiran (4184312)
 
 ## Acknowledgments
