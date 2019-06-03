@@ -97,7 +97,7 @@ in both Visual Studio and the Command Line.
 #### Visual Studio (Recommended)
 
 Open the repository in Visual Studio and navigate to the *Branches* tab in the *Team Explorer*, once there ensure you have the most recent version
-of the *master* branch by running a *Fetch* on this branch (Right click on the *master* branch and select *Fetch*).
+of the *master* branch by running a *Pull* on this branch (Right click on the *master* branch and select *Pull*).
 
 Now that you have the most recent version of *master* you must create a new local branch for the particular project you are working on (Ensure you
 use logical naming conventions, preferably using the same name as the title for the project pane you are currently working on; formatted using
@@ -110,7 +110,7 @@ changed since the last commit). Then you can click *Commit*/*Commit All* to comm
 
 Once you have completed coding on your branch you now have to perform a *rebase* on your code. This is done to update your branch to the latest
 version of the *master* branch to prevent errors and conflicts when your branch is merged into the master branch. The first step when performing a
-*rebase* operation is to *fetch* the latest version of *master* in the same way as before. Now you *check out* your branch and select *Rebase* from
+*rebase* operation is to *pull* the latest version of *master* in the same way as before. Now you *check out* your branch and select *Rebase* from
 the *Branches* tab in the *Team Explorer* you then *rebase* your current branch onto the *master* branch and read through all the conflicts ensuring
 you keep both your new changes and the changes on *master* (when in doubt about a conflict, always give preference to the *master* branch to ensure
 nobody else's code changes are overwritten accidentally). Now you should check that the *rebase* operation hasn't caused any issues/errors and you
@@ -124,9 +124,9 @@ code all you need to do is go the the *Branches* tab of the *Team Explorer* and 
 #### Command Line
 
 Open the folder containing your local repository via the command line, Then you must ensure you have the most recent version of the *master* branch
-by running a *Fetch* on this branch using the following command.
+by running a *Pull* on this branch using the following command.
 ```
-git fetch origin master
+git pull origin master
 ```
 
 Now that you have the most recent version of *master* you must create a new local branch for the particular project you are working on (Ensure you
@@ -153,10 +153,10 @@ git commit -a -m <message>
 
 Once you have completed coding on your branch you now have to perform a *rebase* on your code. This is done to update your branch to the latest
 version of the *master* branch to prevent errors and conflicts when your branch is merged into the master branch. The first step when performing a
-*rebase* operation is to *fetch* the latest version of *master* in the same way as before. Now you *check out* your branch and enter the following code,
+*rebase* operation is to *pull* the latest version of *master* in the same way as before. Now you *check out* your branch and enter the following code,
 dealing with any merge conflicts as they appear.
 ```
-git fetch origin master
+git pull origin master
 git checkout <branch-name>
 git rebase master
 ```
