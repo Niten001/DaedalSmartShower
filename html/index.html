@@ -5,23 +5,24 @@
         <title>Daedal Smart Water System - Web Mockup</title>
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
         <link rel="stylesheet" type="text/css" href="../fonts/font_awesome/css/all.min.css" />
+        <script src="../js/jquery-3.4.1.min.js"></script>
     </head>
     <body>
         <div class="header">
             <div id="header_logo"></div>
-            <div id="header_dashboard" class="header_button">Dashboard</div>
+            <div id="header_dashboard" class="header_button" onclick="goToDashboard()">Dashboard</div>
             <div id="header_profile_container" class="header_profile">
                 <div id="header_profile_icon">
-                    <i class="fas fa-user"></i>
+                    <!-- <i class="fas fa-user"></i> -->
                 </div>
                 <div id="header_profile_list">
                     <div id="night_mode">Night Mode</div>
                     <div id="help">Help</div>
                     <div id="settings">Settings</div>
-                    <div id="login">Log In/Sign Up</div>
+                    <div id="login">Sign In/Sign Up</div>
                 </div>
             </div>
-            <div id="header_login" class="header_button">Log in</div>
+            <div id="header_login" class="header_button" onclick="openLogIn()">Sign in</div>
         </div>
         <div class="main">
             <div id="info_container" class="container">
@@ -33,6 +34,7 @@
             <div id="time_container" class="container">
                 Run Time:
                 <span>3:35.6</span>
+                <div id="time_container_start" class="time_container_button">Start</div>
             </div>
             <div id="temp_container" class="container">
                 <div id="increment" class="fas fa-plus"></div>
@@ -48,7 +50,7 @@
             </div>
             <div id="current_container" class="container">
                 <div id="current_temp_container">
-                    Current Temperature:
+                    Outside Temperature:
                     <span>24.8</span>
                 </div>
                 <div id="current_pressure_container">
@@ -65,5 +67,60 @@
                 </div>
             </div>
         </div>
+        <div id="login_popup_container" class="container">
+            <div id="formContainer" class="login_container">
+                <form id="formMenu" class="menu">
+                    <div id="selectedState" class="menuItem signInFormMenu" onClick="setMenuSignInState()">Sign in</div>
+                    <div id="unselectedSignUp" class="menuItem signUpFormMenu" onClick="setMenuSignUpState()">Sign up</div>
+                </form>
+                <div id="signInFormContainer" class="form">
+                    <div id="signInFormHeader" class="formHeader">Sign in to see your user details.</div>
+                    <form onSubmit="handleLogInSubmit()">
+                        <label id="usernameSignInLabel" class="fieldLabel">
+                            Username:
+                            <input id="usernameSignIn" class="textInput" type="text" placeholder="username" onChange="handleLogInUsername()"/>
+                        </label>
+                        <label id="passwordSignInLabel" class="fieldLabel">
+                            Password:
+                            <input id="passwordSignIn" class="textInput" type="password" placeholder="password" onChange="handlePassword()"/>
+                        </label>
+                        <input id="submitSignIn" class="submitButton" type="submit" value="Sign In" />
+                        <div id="cancelSignIn" class="submitButton" onclick="cancelLogIn()">Cancel</div>
+                    </form>
+                </div>
+                <div id="signUpFormContainer" class="form">
+                    <div id="signUpFormHeader" class="formHeader">Sign up to add your user details to the database.</div>
+                    <form id="signUpForm" onSubmit="handleSubmit">
+                        <label id="fistNameSignUpLabel" class="fieldLabel">
+                            First Name:
+                            <input id="fistNameSignUp" class="textInput" type="text" placeholder="John" onChange="handleSignUpFirstName()" maxLength={50}/>
+                        </label>
+                        <label id="lastNameSignUpLabel" class="fieldLabel">
+                            Last Name:
+                            <input id="lastNameSignUp" class="textInput" type="text" placeholder="Smith" onChange="handleSignUpLastName()" maxLength={50}/>
+                        </label>
+                        <label id="emailSignUpLabel" class="fieldLabel">
+                            Email:
+                            <input id="emailSignUp" class="textInput" type="text" placeHolder="example@email.com" onChange="handleSignUpEmail()" maxLength={100}/>
+                        </label>
+                        <label id="usernameSignUpLabel" class="fieldLabel">
+                            Username:
+                            <input id="usernameSignUp" class="textInput" type="text" placeHolder="username" onChange="handleSignUpUsername()" maxLength={50}/>
+                        </label>
+                        <label id="passwordSignUpLabel" class="fieldLabel">
+                            Password:
+                            <input id="passwordSignUp" class="textInput" type="password" placeHolder="password" onChange="handleSignUpPassword()" maxLength={50}/>
+                        </label>
+                        <label id="confirmPasswordSignUpLabel" class="fieldLabel">
+                            Confirm Password:
+                            <input id="confirmPasswordSignUp" class="textInput" type="password" placeHolder="password" onChange="handleSignUpConfirmPassword()" maxLength={50}/>
+                        </label>
+                        <input id="submitSignUp" class="submitButton" type="submit" value="Sign up" />
+                        <div id="cancelSignUp" class="submitButton" onclick="cancelLogIn()">Cancel</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="../js/controlDashboard.js"></script>
     </body>
 </html>
