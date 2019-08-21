@@ -25,20 +25,30 @@ function setMenuSignUpState() {
     document.getElementsByClassName("signInFormMenu")[0].id = "unselectedSignIn";
     document.getElementsByClassName("signUpFormMenu")[0].id = "selectedState";
 }
-document.getElementById("current_time_container").children[0].onload = function(){
 
+function displayCurrentTime() {
+    var today = new Date();
+    var hours = today.getHours();
+    var minutes = today.getMinutes();
+    var am_pm;
+    var output;
 
-  var today = new Date();
-  var hours = today.getHours();
-  var minutes = today.getMinutes();
-  var output;
+    if (hours < 12) {
+        am_pm = "AM";
+    } else {
+        am_pm = "PM";
+    }
 
-  if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
-  output = hours +":"+ minutes
-  document.getElementById("current_time_container").children[0].innerHTML = output;
-  return(output);
+    hours = hours % 12;
+
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+    output = hours + ":" + minutes + " " + am_pm;
+    document.getElementById("current_time_container").children[0].innerHTML = output;
 }
 
-console.log(document.getElementById("current_time_container").children[0].onload());
+displayCurrentTime();
+setInterval(function () {
+    displayCurrentTime();
+}, 1000)
