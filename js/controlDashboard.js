@@ -25,3 +25,17 @@ function setMenuSignUpState() {
     document.getElementsByClassName("signInFormMenu")[0].id = "unselectedSignIn";
     document.getElementsByClassName("signUpFormMenu")[0].id = "selectedState";
 }
+
+let currentPressure = 30;
+
+function setCurrentPressure(direction) {
+    if (direction == "up") {
+        currentPressure++;
+        document.getElementById("pressure_value").innerHTML = currentPressure;
+    }
+    else{
+        currentPressure--;
+        document.getElementById("pressure_value").innerHTML = currentPressure;
+    }
+
+}
