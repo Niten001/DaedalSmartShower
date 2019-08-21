@@ -39,3 +39,17 @@ function setCurrentPressure(direction) {
     }
 
 }
+
+let currentTemp = 25;
+
+function setCurrentTemp(direction) {
+    if (direction == "up"){
+        currentTemp++;
+        document.getElementById("temp_value").innerHTML = currentTemp;
+    }
+    else{
+        currentTemp--;
+        document.getElementById("temp_value").innerHTML = currentTemp; 
+    }
+
+}
