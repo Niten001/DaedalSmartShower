@@ -39,7 +39,7 @@ function startStop() {
         button = 0;
         clearInterval(clearTime);
         document.getElementById("time_container_start").innerHTML = "Start";
-        document.getElementById("time_container").children[0].innerHTML = "0:00:00";
+        document.getElementById("time_container").children[0].innerHTML = "0:00";
     } else {
         button = 1;
         document.getElementById("time_container_start").innerHTML = "Stop";
