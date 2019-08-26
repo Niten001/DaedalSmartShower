@@ -111,3 +111,4 @@ displayCurrentTime();
 setInterval(function () {
     displayCurrentTime();
 }, 1000);
+ 
