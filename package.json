@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Niten001/DaedalSmartShower#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chart.js": "^2.8.0",
+    "chartjs": "^0.3.24",
     "express": "^4.17.1"
   }
 }
