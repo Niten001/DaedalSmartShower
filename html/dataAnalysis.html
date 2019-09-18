@@ -3,13 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>Daedal Smart Water System - Web Mockup</title>
-        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+        <link rel="stylesheet" type="text/css" href="../css/dataStyle.css" />
         <link rel="stylesheet" type="text/css" href="../fonts/font_awesome/css/all.min.css" />
+        <script src="../js/jquery-3.4.1.min.js"></script>
     </head>
     <body>
         <div class="header">
             <div id="header_logo"></div>
-            <div id="header_dashboard" class="header_button">Controls</div>
+            <div id="header_dashboard" class="header_button" onclick="goToControls()">Controls</div>
             <div id="header_profile_container" class="header_profile">
                 <div id="header_profile_icon"></div>
                 <div id="header_profile_list">
@@ -27,15 +28,15 @@
                 <div class="sidebar_pane">Devices</div>
             </div>
             <div id="info_container" class="container">
-                    <div id="current_user">
-                            Current User: 
-                            <span>Defualt User u456788</span>
-                        </div>
-                    <div id="current_device">
-                        Current Device: 
-                        <span>Shower Controller e146534</span>
-                    </div>
+                <div id="current_user">
+                    Current User:
+                    <span>Defualt User u456788</span>
                 </div>
+                <div id="current_device">
+                    Current Device:
+                    <span>Shower Controller e146534</span>
+                </div>
+            </div>
             <div id="user_settings" class="container">
                 <div id="user_img"></div>
                 <div id="user_name">
@@ -48,7 +49,8 @@
                 </div>
                 <div id="user_phone">
                     Phone:
-                    <span>05 1234 6789</span></div>
+                    <span>05 1234 6789</span>
+                </div>
                 <div id="user_preferences">
                     User Preferences
                     <div id="pref_temp">
@@ -78,16 +80,17 @@
                         Maximum Pressure: <span>850 kPa</span>
                     </div>
                 </div>
+            </div> <!--EDIT THIS SECTION ONWARDS-->
+            <div id="graph_container">
+                <canvas id="graph" height="400" width="600"></canvas>     <!--Setting up display parameters-->
+                <script src="../js/Chart.js/Chart.js"></script>
             </div>
-            <div id="graph" class="container">   <!--EDIT THIS SECTION ONWARDS-->
-                <img id="graph_img" src="./img/graph_img.png" />
-            </div>
-            <div id="data_options" class="container">
-                <div class="container">Data Chart Settings</div>
-                <div id="data_dropdown">Average Water Use</div>
-                <div id="data_start_date">Start Date:<span>1/1/2008</span></div>
-                <div id="data_end_date">End Date:<span>31/12/2009</span></div>
-            </div>
+            <!--Haven't touched below<div id="data_options" class="container"></div>
+            <div class="container">Data Chart Settings</div>
+            <div id="data_dropdown">Average Water Use</div>
+            <div id="data_start_date">Start Date:<span>1/1/2008</span></div>
+            <div id="data_end_date">End Date:<span>31/12/2009</span></div>-->
         </div>
+        <script src="./js/dataDashboard.js"></script>
     </body>
 </html>

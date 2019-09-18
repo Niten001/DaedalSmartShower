@@ -1,47 +1,41 @@
-// JavaScript source code
-const chartjs = require("chartjs")
-module.exports = {
-    config: {
-        type: 'bubble',
+function goToControls() {
+    window.location.href = "./";
+}
+
+$.getJSON('../db/userData.json', function(data) {
+    //Get/Transform Data
+    var tempData = data.connections[0].data.map((e) => {
+        return e.temp;
+    });
+    var timeData = data.connections[0].data.map((e) => {
+        var d = new Date(0);
+        d.setUTCMilliseconds(e.timestamp);
+        var out = d.getHours() + ":" + d.getMinutes();
+        return out;
+    });
+
+
+    // Output Data
+    var ctx = document.getElementById('graph').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
         data: {
+            labels: timeData,
             datasets: [{
-                data: [
-                    { x: 0, y: 0 },
-                    { x: 1, y: 0 },
-                    { x: 2, y: 0 },
-                    { x: 3, y: 0 },
-                    { x: 4, y: 0 },
-                    { x: 5, y: 0 }
-                ],
-                radius: function (ctx) {
-                    return ctx.dataset.data[ctx.dataIndex].x * 4;
-                }
+                label: '# of Votes',
+                data: tempData, 
+                fill: false,
+                borderWidth: 4
             }]
         },
         options: {
-            legend: false,
-            title: false,
             scales: {
-                xAxes: [{ display: false }],
-                yAxes: [{ display: false }]
-            },
-            elements: {
-                point: {
-                    backgroundColor: '#444'
-                }
-            },
-            layout: {
-                padding: {
-                    left: 24,
-                    right: 24
-                }
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
         }
-    },
-    options: {
-        canvas: {
-            height: 128,
-            width: 256
-        }
-    }
-};
+    });
+});
