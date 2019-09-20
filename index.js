@@ -9,6 +9,7 @@ app.use('/css', express.static('./css'));
 app.use('/fonts', express.static('./fonts'));
 app.use('/js', express.static('./js'));
 app.use('/img', express.static('./img'));
+app.use('/db', express.static('./db'));
 
 app.get('/', (req, res) => {
     res.redirect('./index.html');
@@ -37,6 +38,7 @@ Object.keys(ifaces).forEach(function (ifname) {
     ++alias;
   });
 });
+
 
 app.listen(8080);
 console.log('Running on http://' + ipAddr + ':8080');
