@@ -27,30 +27,30 @@
         <div class="main">
             <div id="info_container" class="container">
                 <div id="current_device">
-                    Current Device: 
+                    Current Device:
                     <span>Shower Controller e146534</span>
                 </div>
             </div>
             <div id="time_container" class="container">
                 Run Time:
-                <span>3:35.6</span>
-                <div id="time_container_start" class="time_container_button">Start</div>
+                <span>0:00</span>
+                <div id="time_container_start" class="time_container_button" onclick="startStop()">Start</div>
             </div>
             <div id="temp_container" class="container">
-                <div id="increment" class="fas fa-plus"></div>
+                <div id="increment" class="fas fa-plus" onclick="setCurrentTemp('up')"></div>
                 <div id="temp_value">25</div>
                 <p>Temperature</p>
-                <div id="decrement" class="fas fa-minus"></div>
+                <div id="decrement" class="fas fa-minus" onclick="setCurrentTemp('down')"></div>
             </div>
             <div id="pressure_container" class="container">
-                <div id="increment" class="fas fa-plus"></div>
+                <div id="increment" class="fas fa-plus" onclick="setCurrentPressure('up')"></div>
                 <div id="pressure_value">32</div>
                 <p>Pressure</p>
-                <div id="decrement" class="fas fa-minus"></div>
+                <div id="decrement" class="fas fa-minus" onclick="setCurrentPressure('down')"></div>
             </div>
             <div id="current_container" class="container">
                 <div id="current_temp_container">
-                    Outside Temperature:
+                    Current Temperature:
                     <span>24.8</span>
                 </div>
                 <div id="current_pressure_container">
@@ -59,7 +59,7 @@
                 </div>
                 <div id="current_time_container">
                     Current Time:
-                    <span>2:19 PM</span>
+                    <span></span>
                 </div>
                 <div id="current_usage_container">
                     Current Water Usage:
