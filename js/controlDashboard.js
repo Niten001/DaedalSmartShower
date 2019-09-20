@@ -26,6 +26,65 @@ function setMenuSignUpState() {
     document.getElementsByClassName("signUpFormMenu")[0].id = "selectedState";
 }
 
+var button = 0;
+var clearTime;
+
+function startStop() {
+    var initialTime = (new Date).getTime();
+    var currentTime;
+    var runTime;
+    var seconds;
+
+    if (button == 1) {
+        button = 0;
+        clearInterval(clearTime);
+        document.getElementById("time_container_start").innerHTML = "Start";
+        document.getElementById("time_container").children[0].innerHTML = "0:00";
+    } else {
+        button = 1;
+        document.getElementById("time_container_start").innerHTML = "Stop";
+
+        clearTime = setInterval(function(){
+            currentTime = (new Date).getTime();
+            runTime = new Date(currentTime-initialTime);
+            seconds = runTime.getSeconds();
+
+            if (seconds < 10){
+                seconds = "0" + seconds;
+            }
+            document.getElementById("time_container").children[0].innerHTML = runTime.getMinutes() + ':' + seconds;
+        }, 1000);
+    }
+}
+
+let currentPressure = 30;
+
+function setCurrentPressure(direction) {
+    if (direction == "up") {
+        currentPressure++;
+        document.getElementById("pressure_value").innerHTML = currentPressure;
+    }
+    else{
+        currentPressure--;
+        document.getElementById("pressure_value").innerHTML = currentPressure;
+    }
+
+}
+
+let currentTemp = 25;
+
+function setCurrentTemp(direction) {
+    if (direction == "up"){
+        currentTemp++;
+        document.getElementById("temp_value").innerHTML = currentTemp;
+    }
+    else{
+        currentTemp--;
+        document.getElementById("temp_value").innerHTML = currentTemp; 
+    }
+
+}
+
 function displayCurrentTime() {
     var today = new Date();
     var hours = today.getHours();
@@ -51,4 +110,4 @@ function displayCurrentTime() {
 displayCurrentTime();
 setInterval(function () {
     displayCurrentTime();
-}, 1000)
+}, 1000);
