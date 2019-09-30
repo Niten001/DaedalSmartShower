@@ -118,3 +118,58 @@ Object.keys(ifaces).forEach(function (ifname) {
 
 app.listen(8080);
 console.log('Running on http://' + ipAddr + ':8080');
+
+/*function crc16_go(text) {
+	var ch, i, j;
+	//uint16_t good_crc;
+	var bad_crc;
+
+	//good_crc = 0xffff;
+    bad_crc = 0xffff;
+    //bad_crc = 65535;
+        i = 0;
+
+        while((ch=(text + i))!= 0)
+        {
+            //        update_good_crc(ch);
+            update_bad_crc(ch, bad_crc);
+            i++;
+        }
+
+        for (j=4;j>0;j--)
+        {
+            //(text+i+j-1) = bad_crc % 16 + 0x30;
+            bad_crc = bad_crc/16;
+    }
+    
+    // console.log(crc16_go)
+}
+
+function update_bad_crc( ch, bad_crc) {
+    var i, xor_flag;
+    // Why are they shifting this byte left by 8 bits??
+    // How do the low bits of the poly ever see it?
+    
+    ch<<=8;
+    for(i=0; i<8; i++)
+    {
+        if ((bad_crc ^ ch) & 0x8000)
+        //if ((bad_crc ^ ch) & 32768)
+        {
+            xor_flag = 1;
+        }
+        else
+        {
+            xor_flag = 0;
+        }
+        bad_crc = bad_crc << 1;
+        if (xor_flag)
+        {
+            bad_crc = bad_crc ^ 0x1021;
+            //bad_crc = bad_crc ^ 4129;
+        }
+        ch = ch << 1;
+    }
+}
+var output = ['€', 'F', 'i', '0', '0', '0', '0', '\r'];
+console.log(crc16_go(output));*/
