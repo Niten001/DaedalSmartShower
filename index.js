@@ -2,8 +2,13 @@ const express = require('express');
 const app = express();
 const parser = require('body-parser');
 const bcrypt = require('bcrypt');
+<<<<<<< HEAD
 //const raspi = require('raspi');
 //const Serial = require('raspi-serial').Serial;
+=======
+const raspi = require('raspi');
+const Serial = require('raspi-serial').Serial;
+>>>>>>> Bunch o changes
 const {Pool} = require('pg');
 const pool = new Pool({
     user: 'postgres',
@@ -12,7 +17,10 @@ const pool = new Pool({
     password: 'Y45DqED1Wdim',
     port: '5432'
 });
+<<<<<<< HEAD
 const client = require('mongodb').MongoClient;
+=======
+>>>>>>> Bunch o changes
 const os = require('os');
 const ifaces = os.networkInterfaces();
 
@@ -36,6 +44,7 @@ app.post('/ControlShower', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 app.get('/ShowerData', (req, res) => {
     client.connect('mongodb://localhost:27017', (err, db) => {
         if (err) throw err;
@@ -48,6 +57,8 @@ app.get('/ShowerData', (req, res) => {
     });
 });
 
+=======
+>>>>>>> Bunch o changes
 app.post('/SignIn', function (req, res) {
   pool.query("SELECT passwordHash FROM users WHERE (username = '" + req.body.username + "');", function(err, result) {
       if (err) {
