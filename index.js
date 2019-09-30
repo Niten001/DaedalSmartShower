@@ -1,21 +1,97 @@
 const express = require('express');
 const app = express();
 const parser = require('body-parser');
+const bcrypt = require('bcrypt');
+const raspi = require('raspi');
+const Serial = require('raspi-serial').Serial;
+const {Pool} = require('pg');
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'DaedalUserInfo',
+    password: 'Y45DqED1Wdim',
+    port: '5432'
+});
 const os = require('os');
 const ifaces = os.networkInterfaces();
 
-app.use('/', express.static('./html'));
-app.use('/css', express.static('./css'));
-app.use('/fonts', express.static('./fonts'));
-app.use('/js', express.static('./js'));
-app.use('/img', express.static('./img'));
-app.use('/db', express.static('./db'));
+app.use('/', express.static('./'));
 
 app.get('/', (req, res) => {
-    res.redirect('./index.html');
+    res.redirect('./html/index.html');
 });
 
 app.use(parser.urlencoded({ extender: true }));
+
+app.post('/ControlShower', (req, res) => {
+    raspi.init(() => {
+        var serial = new Serial();
+        serial.open(() => {
+            serial.on('data', (data) => {
+                res.send(data);
+            });
+            serial.write(req.body.command);
+        });
+    });
+});
+
+app.post('/SignIn', function (req, res) {
+  pool.query("SELECT passwordHash FROM users WHERE (username = '" + req.body.username + "');", function(err, result) {
+      if (err) {
+          console.log(err.stack);
+      } else {
+          if (result.rows[0]) {
+              if (bcrypt.compareSync(req.body.password, result.rows[0].passwordhash)) {
+                  pool.query("SELECT firstName, lastName, email, username FROM users WHERE (username = '" + req.body.username + "');", function(err, result) {
+                      if (err) {
+                          console.log(err.stack);
+                      } else {
+                          res.send({
+                              firstName: result.rows[0].firstname,
+                              lastName: result.rows[0].lastname,
+                              email: result.rows[0].email,
+                              username: result.rows[0].username
+                          });
+                      }
+                  });
+              } else {
+                  res.send({
+                      errorMessage: {
+                          signInError: "Invalid username or password."
+                      }
+                  });
+              }
+          } else {
+              res.send({
+                  errorMessage: {
+                      signInError: "Invalid username or password."
+                  }
+              });
+          }
+      }
+  });
+});
+
+app.post('/SignUp', function(req, res) {
+  pool.query("INSERT INTO users VALUES ('" + req.body.username + "', '" + bcrypt.hashSync(req.body.password, 13) + "', '" + req.body.firstName + "', '" + req.body.lastName + "', '" + req.body.email + "');", function(err, result) {
+      if (err) {
+          if (err.message == 'duplicate key value violates unique constraint "users_pkey"') {
+              res.send({
+                  errorMessage: {
+                      usernameError: "Username already exists. Please use a different username.", 
+                  },
+                  firstName: req.body.firstName,
+                  lastName: req.body.lastName,
+                  email: req.body.email
+              });
+          } else {
+              console.log(err.stack);
+          }
+      } else {
+          res.send(200);
+      }
+  });
+});
 
 let ipAddr = 'localhost';
 

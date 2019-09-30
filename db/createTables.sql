@@ -1,22 +1,19 @@
 CREATE TABLE users(
-    user_id VARCHAR(20)         NOT NULL,
     username VARCHAR(50)        NOT NULL,
     passwordHash VARCHAR(100)   NOT NULL, 
     firstName VARCHAR(50)       NOT NULL,
     lastName VARCHAR(50)        NOT NULL,
     email VARCHAR(100),
     phone_number VARCHAR(20),
-    pref_temp DECIMAL(9),
-    pref_pressure DECIMAL(9),
-    temp_limit_high DECIMAL(9),
-    temp_limit_low DECIMAL(9),
-    pressure_limit_high DECIMAL(9),
+    pref_temp DECIMAL(9)        DEFAULT 23,
+    pref_pressure DECIMAL(9)    DEFAULT 50,
+    temp_limit_high DECIMAL(9)  DEFAULT 28,
+    temp_limit_low DECIMAL(9)   DEFAULT 18,
+    pressure_limit_high DECIMAL(9)  DEFAULT 100,
     time_limit DECIMAL(9),
-    is_admin BOOLEAN,
+    is_admin BOOLEAN            DEFAULT FALSE,
     admin_id VARCHAR(20)
-    CONSTRAINT users_pkey PRIMARY KEY (user_id),
-    CONSTRAINT users_unique_user UNIQUE (username),
-    CONSTRAINT users_unique_passwd UNIQUE (username)
+    CONSTRAINT users_pkey PRIMARY KEY (username),
 );
 
 CREATE TABLE devices(

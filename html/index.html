@@ -75,7 +75,7 @@
                 </form>
                 <div id="signInFormContainer" class="form">
                     <div id="signInFormHeader" class="formHeader">Sign in to see your user details.</div>
-                    <form onSubmit="handleLogInSubmit()">
+                    <form onsubmit="signIn(event)">
                         <label id="usernameSignInLabel" class="fieldLabel">
                             Username:
                             <input id="usernameSignIn" class="textInput" type="text" placeholder="username" onChange="handleLogInUsername()"/>
@@ -90,7 +90,7 @@
                 </div>
                 <div id="signUpFormContainer" class="form">
                     <div id="signUpFormHeader" class="formHeader">Sign up to add your user details to the database.</div>
-                    <form id="signUpForm" onSubmit="handleSubmit">
+                    <form id="signUpForm" onsubmit="signUp(event)">
                         <label id="fistNameSignUpLabel" class="fieldLabel">
                             First Name:
                             <input id="fistNameSignUp" class="textInput" type="text" placeholder="John" onChange="handleSignUpFirstName()" maxLength={50}/>
@@ -122,5 +122,6 @@
             </div>
         </div>
         <script src="../js/controlDashboard.js"></script>
+        <script src="../js/signIn.js"></script>
     </body>
 </html>

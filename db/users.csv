@@ -1,0 +1,12 @@
+user_id,username ,passwordHash ,firstName,lastName ,email ,phone_number ,pref_temp ,pref_pressure ,temp_limit_high ,temp_limit_low ,pressure_limit_high ,time_limit 
+yc778,Cris,,Rana,Saab,kevin@gmail.com,03 9088 9006,36.4,0.184,35,19,0.25,30mins
+jg684,Leo,,Claire,Gurry,cg650@gmail.com,02 6468 7092,35.8,0.232,40,18.5,0.2,30mins
+qc250,Don,,Yuna,Lee,langpu@163.com,0499 157 845,37.6,0.211,25.7,18,0.25,30mins
+xd4396,James,,Faruk,Karki,28760275qi@qq.com,0473 917 235,33.2,0.192,36,20.7,0.25,30mins
+xc344,Neeka,,Christopher,Russo,1043557206@gmail.com,02 6674 2380,32,0.227,34.8,22,0.25,30mins
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,, ,,,,,
