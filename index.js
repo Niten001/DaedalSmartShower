@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const parser = require('body-parser');
 const bcrypt = require('bcrypt');
-const raspi = require('raspi');
-const Serial = require('raspi-serial').Serial;
+//const raspi = require('raspi');
+//const Serial = require('raspi-serial').Serial;
 const {Pool} = require('pg');
 const pool = new Pool({
     user: 'postgres',
@@ -12,6 +12,7 @@ const pool = new Pool({
     password: 'Y45DqED1Wdim',
     port: '5432'
 });
+const client = require('mongodb').MongoClient;
 const os = require('os');
 const ifaces = os.networkInterfaces();
 
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
 
 app.use(parser.urlencoded({ extender: true }));
 
-app.post('/ControlShower', (req, res) => {
+/*app.post('/ControlShower', (req, res) => {
     raspi.init(() => {
         var serial = new Serial();
         serial.open(() => {
@@ -31,6 +32,18 @@ app.post('/ControlShower', (req, res) => {
                 res.send(data);
             });
             serial.write(req.body.command);
+        });
+    });
+});*/
+
+app.get('/ShowerData', (req, res) => {
+    client.connect('mongodb://localhost:27017', (err, db) => {
+        if (err) throw err;
+        let dbo = db.db('DaedalData');
+        dbo.collection('UserData').findOne({}, (err, result) => {
+            if (err) throw err;
+            res.send(result);
+            db.close();
         });
     });
 });
