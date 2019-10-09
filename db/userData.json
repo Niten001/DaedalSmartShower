@@ -3,7 +3,7 @@
   "connections": [
     {
       "start_time": 1567153835150,
-      "end_time": 1567153836350,
+      "end_time": 1567154835350,
       "user_id": "00000001",
       "data": [
         {
@@ -65,7 +65,7 @@
     },
     {
       "start_time": 1567493835150,
-      "end_time": 156749386750,
+      "end_time": 1567495935150,
       "user_id": "00000002",
       "data": [
         {
@@ -137,8 +137,242 @@
     },
     {
       "start_time": 1567513835150,
-      "end_time": 1567513837250,
+      "end_time": 1567514997250,
       "user_id": "00000003",
+      "data": [
+        {
+          "timestamp": 1567513835150,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835250,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835350,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835450,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835550,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835650,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835750,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835850,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835950,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836050,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836150,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836250,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836350,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836450,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836550,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836650,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836750,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836850,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836950,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513837050,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513837150,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513837250,
+          "temp": 27.4,
+          "pressure": 65
+        }
+      ]
+    },
+    {
+      "start_time": 1569802324000,
+      "end_time": 1569802534000,
+      "user_id": "00000004",
+      "data": [
+        {
+          "timestamp": 1567513835150,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835250,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835350,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835450,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835550,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835650,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835750,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835850,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513835950,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836050,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836150,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836250,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836350,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836450,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836550,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836650,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836750,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836850,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513836950,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513837050,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513837150,
+          "temp": 27.4,
+          "pressure": 65
+        },
+        {
+          "timestamp": 1567513837250,
+          "temp": 27.4,
+          "pressure": 65
+        }
+      ]
+    },
+    {
+      "start_time": 1569812324000,
+      "end_time": 1569812834000,
+      "user_id": "00000005",
       "data": [
         {
           "timestamp": 1567513835150,
