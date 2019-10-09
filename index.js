@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 app.use(parser.urlencoded({ extender: true }));
 
-/*app.post('/ControlShower', (req, res) => {
+app.post('/ControlShower', (req, res) => {
     raspi.init(() => {
         var serial = new Serial();
         serial.open(() => {
@@ -34,7 +34,7 @@ app.use(parser.urlencoded({ extender: true }));
             serial.write(req.body.command);
         });
     });
-});*/
+});
 
 app.get('/ShowerData', (req, res) => {
     client.connect('mongodb://localhost:27017', (err, db) => {

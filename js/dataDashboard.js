@@ -2,7 +2,7 @@ function goToControls() {
     window.location.href = "./";
 }
 
-$.getJSON('../db/userData.json', function(data) {
+$.getJSON('/ShowerData', function(data) {
     //Get/Transform Data
     var tempData = data.connections[0].data.map((e) => {
         return e.temp;
@@ -13,7 +13,6 @@ $.getJSON('../db/userData.json', function(data) {
         var out = d.getHours() + ":" + d.getMinutes();
         return out;
     });
-
 
     // Output Data
     var ctx = document.getElementById('graph').getContext('2d');
