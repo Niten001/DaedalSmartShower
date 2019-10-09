@@ -3,7 +3,7 @@ function goToControls() {
 }
 
 function updateChart(){
-    $.getJSON('../db/userData.json', function (data) {
+    $.getJSON('/ShowerData', function (data) {
         // Get/Transform Data
         var tempData;
         var timeData;

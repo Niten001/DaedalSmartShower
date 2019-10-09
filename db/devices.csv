@@ -1,0 +1,5 @@
+device_id,device_name ,location ,default_pref_temp ,default_pref_pressure ,default_temp_limit_high ,default_temp_limit_low ,default_pressure_limit_high ,default_time_limit ,admin_id
+DNQW4,SHOWER1,,28,0.22,34,18,0.25,600000,
+RGJJCLF,SHOWER2,,25,0.194,34,18,0.25,600000,
+35 485109,SHOWER3,,27.2,0.22,34,18,0.25,600000,
+058626 2,SHOWER4,,30,0.208,34,18,0.25,600000,

@@ -83,6 +83,21 @@ function setCurrentTemp(direction) {
         document.getElementById("temp_value").innerHTML = currentTemp; 
     }
 
+    const data = {
+        command: currentTemp
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: "/ControlShower",
+        data: data,
+        success: function(result) {
+            console.log(result);
+        },
+        error: function () {
+            throw "An error occured please try again.";
+        }
+    });
 }
 
 function displayCurrentTime() {
