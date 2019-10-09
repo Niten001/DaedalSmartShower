@@ -21,10 +21,7 @@
     "body-parser": "^1.19.0",
     "chart.js": "^2.8.0",
     "express": "^4.17.1",
-<<<<<<< HEAD
     "mongodb": "^3.3.2",
-=======
->>>>>>> Bunch o changes
     "pg": "^7.12.1"
   }
 }
