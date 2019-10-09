@@ -89,20 +89,20 @@
                         <legend>Data</legend>
                         <p>
                             <label>Select Chart</label>
-                            <select id="myList1">
+                            <select id="myList1" onchange="updateChart()">
                                 <option value="1">Average Shower Time</option>
                                 <option value="2">Average Water Use</option>
                                 <option value="3">Average Temperature</option>
-                                <option value="4">Average Pressure</option>
+                                <option value="4">Net Water Use</option>
                             </select>
                             <label>Select Timeframe</label>
-                            <select id="myList2">
+                            <select id="myList2" onchange="updateChart()">
                                 <option value="1">Today</option>
                                 <option value="2">7 Days</option>
                                 <option value="3">1 Month</option>
                                 <option value="4">3 Months</option>
-                                <option value="4">6 Months</option>
-                                <option value="4">1 Year</option>
+                                <option value="5">6 Months</option>
+                                <option value="6">1 Year</option>
                             </select>
                         </p>
                     </fieldset>

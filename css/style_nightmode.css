@@ -219,7 +219,7 @@ body {
     margin: calc((((100vh - 59px - 3em)*5/7) - ((100vw/3) - 72px))/2) 24px calc((((100vh - 59px - 3em)*5/7) - ((100vw/3) - 72px))/2) 48px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
-    background: #14141436;
+    background: #000000da;
 }
 
 #time_container_start {
