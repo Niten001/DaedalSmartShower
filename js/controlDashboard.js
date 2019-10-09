@@ -34,12 +34,16 @@ function startStop() {
     var currentTime;
     var runTime;
     var seconds;
+    var data;
 
     if (button == 1) {
         button = 0;
         clearInterval(clearTime);
         document.getElementById("time_container_start").innerHTML = "Start";
         document.getElementById("time_container").children[0].innerHTML = "0:00";
+        data = {
+            command: "Start"
+        }
     } else {
         button = 1;
         document.getElementById("time_container_start").innerHTML = "Stop";
@@ -54,7 +58,22 @@ function startStop() {
             }
             document.getElementById("time_container").children[0].innerHTML = runTime.getMinutes() + ':' + seconds;
         }, 1000);
+        data = {
+            command: "Stop"
+        }
     }
+
+    $.ajax({
+        type: 'POST',
+        url: "/ControlShower",
+        data: data,
+        success: function(result) {
+            console.log(result);
+        },
+        error: function () {
+            throw "An error occured please try again.";
+        }
+    });
 }
 
 let currentPressure = 30;
@@ -69,6 +88,21 @@ function setCurrentPressure(direction) {
         document.getElementById("pressure_value").innerHTML = currentPressure;
     }
 
+    const data = {
+        command: currentPressure
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: "/ControlShower",
+        data: data,
+        success: function(result) {
+            console.log(result);
+        },
+        error: function () {
+            throw "An error occured please try again.";
+        }
+    });
 }
 
 let currentTemp = 25;
