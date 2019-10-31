@@ -37,7 +37,8 @@ const commandsEnum = {
     "temp_27": 4,
     "temp_28": 5,
     "temp_29": 6,
-    "temp_30": 7
+    "temp_30": 7,
+    "current_flow": 8
 };
 
 function startStop() {
@@ -190,6 +191,22 @@ function getCurrentTemp() {
     });
 }
 
+function getCurrentFlow() {
+    data = { command: commandsEnum.current_flow };
+    $.ajax({
+        type: 'POST',
+        url: "/ControlShower",
+        data: data,
+        success: function(result) {
+            var output = (parseFloat(result.substr(3, 4)))/10;
+            document.getElementById("current_usage_container").children[0].innerHTML = output + " L";
+        },
+        error: function () {
+            document.getElementById("current_usage_container").children[0].innerHTML = "---";
+        }
+    });
+}
+
 function getOutsideTemp() {
     $.ajax({
         type: 'GET',
@@ -197,20 +214,21 @@ function getOutsideTemp() {
         dataType: 'json',
         url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/0e083c7b535597b8802dbe9c3fbf8828/-34.4041,150.8797?exclude=hourly,daily,flags&units=si',
         success: function(response) {
-            console.log(response);
-            document.getElementById("current_outside_temp_container").children[0].innerHTML = response.currently.temperature + "°C";
+            document.getElementById("current_outside_temp_container").children[0].innerHTML = response.currently.temperature.toFixed(1) + " °C";
         }
       });
 }
 
 displayCurrentTime();
 getCurrentTemp();
+getCurrentFlow();
 getOutsideTemp();
 setInterval(function () {
     displayCurrentTime();
 }, 1000);
 setInterval(function () {
     getCurrentTemp();
+    getCurrentFlow();
 }, 10000);
 setInterval(function () {
     getOutsideTemp();

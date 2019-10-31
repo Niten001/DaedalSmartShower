@@ -16,11 +16,6 @@ const client = require('mongodb').MongoClient;
 const os = require('os');
 const ifaces = os.networkInterfaces();
 
-app.use(function(req, res, next) {
-    res.setHeader("Content-Security-Policy", "script-src https://api.darksky.net/");
-    return next();
-});
-
 app.use('/', express.static('./'));
 
 app.get('/', (req, res) => {
@@ -46,6 +41,7 @@ app.use(parser.urlencoded({ extender: true }));
             //     case 5: { output = "ÇFb28068?1\r0"; break; } // temp_28
             //     case 6: { output = "ÇFb2905;<0\r0"; break; } // temp_29
             //     case 7: { output = "ÇFb300=668\r0"; break; } // temp_30
+            //     case 8: { output = "ÇFe8666\r0"}; break; } // current_flow
             //     default: break;
             // }
 //             serial.write(output);
