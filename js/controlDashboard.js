@@ -29,6 +29,17 @@ function setMenuSignUpState() {
 var button = 0;
 var clearTime;
 
+const commandsEnum = {
+    "get_temp": 0,
+    "stop": 1,
+    "temp_25": 2,
+    "temp_26": 3,
+    "temp_27": 4,
+    "temp_28": 5,
+    "temp_29": 6,
+    "temp_30": 7
+};
+
 function startStop() {
     var initialTime = (new Date).getTime();
     var currentTime;
@@ -42,7 +53,7 @@ function startStop() {
         document.getElementById("time_container_start").innerHTML = "Start";
         document.getElementById("time_container").children[0].innerHTML = "0:00";
         data = {
-            command: "Start"
+            command: commandsEnum.temp_27
         }
     } else {
         button = 1;
@@ -59,7 +70,7 @@ function startStop() {
             document.getElementById("time_container").children[0].innerHTML = runTime.getMinutes() + ':' + seconds;
         }, 1000);
         data = {
-            command: "Stop"
+            command: commandsEnum.stop
         }
     }
 
@@ -105,7 +116,7 @@ function setCurrentPressure(direction) {
     });
 }
 
-let currentTemp = 25;
+let currentTemp = 27;
 
 function setCurrentTemp(direction) {
     if (direction == "up"){
@@ -117,8 +128,14 @@ function setCurrentTemp(direction) {
         document.getElementById("temp_value").innerHTML = currentTemp; 
     }
 
-    const data = {
-        command: currentTemp
+    switch (currentTemp) {
+        case 25: data = { command: commandsEnum.temp_25 };  break;
+        case 26: data = { command: commandsEnum.temp_26 };  break;
+        case 27: data = { command: commandsEnum.temp_27 };  break;
+        case 28: data = { command: commandsEnum.temp_28 };  break;
+        case 29: data = { command: commandsEnum.temp_29 };  break;
+        case 30: data = { command: commandsEnum.temp_30 };  break;
+        default: break;
     }
 
     $.ajax({
@@ -148,6 +165,7 @@ function displayCurrentTime() {
     }
 
     hours = hours % 12;
+    if (hours == 0) { hours = 12; }
 
     if (minutes < 10) {
         minutes = "0" + minutes;
@@ -156,7 +174,44 @@ function displayCurrentTime() {
     document.getElementById("current_time_container").children[0].innerHTML = output;
 }
 
+function getCurrentTemp() {
+    data = { command: commandsEnum.get_temp };
+    $.ajax({
+        type: 'POST',
+        url: "/ControlShower",
+        data: data,
+        success: function(result) {
+            var output = (parseFloat(result.substr(3, 3)))/10;
+            document.getElementById("current_temp_container").children[0].innerHTML = output + "\00b0 C";
+        },
+        error: function () {
+            document.getElementById("current_temp_container").children[0].innerHTML = "---";
+        }
+    });
+}
+
+function getOutsideTemp() {
+    $.ajax({
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'json',
+        url: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/0e083c7b535597b8802dbe9c3fbf8828/-34.4041,150.8797?exclude=hourly,daily,flags&units=si',
+        success: function(response) {
+            console.log(response);
+            document.getElementById("current_outside_temp_container").children[0].innerHTML = response.currently.temperature + "°C";
+        }
+      });
+}
+
 displayCurrentTime();
+getCurrentTemp();
+getOutsideTemp();
 setInterval(function () {
     displayCurrentTime();
 }, 1000);
+setInterval(function () {
+    getCurrentTemp();
+}, 10000);
+setInterval(function () {
+    getOutsideTemp();
+}, 60000);

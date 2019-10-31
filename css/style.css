@@ -277,7 +277,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-#current_temp_container span, #current_pressure_container span, #current_time_container span, #current_usage_container span {
+#current_temp_container span, #current_outside_temp_container span, #current_time_container span, #current_usage_container span {
     display: block;
     text-transform: none;
     color: #721ae1;
@@ -285,7 +285,7 @@ body {
     margin-top: 4px;
 }
 
-#current_temp_container, #current_pressure_container, #current_time_container, #current_usage_container {
+#current_temp_container, #current_outside_temp_container, #current_time_container, #current_usage_container {
     padding: 6px;
 }
 
@@ -339,12 +339,8 @@ body {
     font-size: 10px;
 }
 
-#temp_value::after, #current_temp_container span::after {
+#temp_value::after {
     content: '\00b0 C';
-}
-
-#current_pressure_container span::after {
-    content: ' kPa';
 }
 
 @media only screen and (max-width: 868px) {
